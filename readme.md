@@ -1,3 +1,6 @@
+This fork reverts the dock back to the clock widget, for better thumb usage.
+
+
 # Kvaesitso
 
 <img src="https://raw.githubusercontent.com/MM2-0/Kvaesitso/main/assets/icons/ic_launcher.png" width="128">
