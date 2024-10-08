@@ -51,8 +51,7 @@ fun HomescreenSettingsScreen() {
     val navController = LocalNavController.current
 
     val context = LocalContext.current
-
-    val dock by viewModel.dock.collectAsStateWithLifecycle(null)
+    
     val fixedRotation by viewModel.fixedRotation.collectAsStateWithLifecycle(null)
     val editButton by viewModel.widgetEditButton.collectAsStateWithLifecycle(null)
     val searchBarStyle by viewModel.searchBarStyle.collectAsStateWithLifecycle(null)
@@ -77,18 +76,6 @@ fun HomescreenSettingsScreen() {
                     value = fixedRotation == true,
                     onValueChanged = {
                         viewModel.setFixedRotation(it)
-                    },
-                )
-            }
-        }
-        item {
-            PreferenceCategory(stringResource(R.string.preference_clockwidget_favorites_part)) {
-                SwitchPreference(
-                    title = stringResource(R.string.preference_clockwidget_favorites_part),
-                    summary = stringResource(R.string.preference_clockwidget_favorites_part_summary),
-                    value = dock == true,
-                    onValueChanged = {
-                        viewModel.setDock(it)
                     },
                 )
             }
