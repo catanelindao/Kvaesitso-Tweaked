@@ -28,7 +28,6 @@ import org.koin.core.component.get
 
 class HomescreenSettingsScreenVM(
     private val uiSettings: UiSettings,
-    private val clockWidgetSettings: ClockWidgetSettings,
 ) : ViewModel() {
 
     var showClockWidgetSheet by mutableStateOf(false)
@@ -120,13 +119,6 @@ class HomescreenSettingsScreenVM(
         uiSettings.setBottomSearchBar(bottomSearchBar)
     }
 
-    val dock = clockWidgetSettings.dock
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
-
-    fun setDock(dock: Boolean) {
-        clockWidgetSettings.setDock(dock)
-    }
-
     val fixedRotation = uiSettings.orientation.map { it != ScreenOrientation.Auto }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
@@ -153,7 +145,6 @@ class HomescreenSettingsScreenVM(
             initializer {
                 HomescreenSettingsScreenVM(
                     uiSettings = get(),
-                    clockWidgetSettings = get(),
                 )
             }
         }
